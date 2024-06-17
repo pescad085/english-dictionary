@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English dictionary</title>
+</head>
+
+<body>
+    <h1>
+        dictionario
+    </h1>
+
+    <input type="text" id="searchWord" placeholder="Enter a word">
+    <button id="searchButton">Search</button>
+    <h3 id="print"></h3>
+
+
+    <script>
+        const englishDictionary = {
+            "hello": "a greeting",
+            "computer": "an electronic device",
+            "book": "a collection of written pages",
+            "laptop": "a computer that you can use on your lap",
+             "the wheelchair guy": "best youtuber"
+        };
+
+        let searchInput = document.getElementById("searchWord");
+        let searchButton = document.getElementById("searchButton");
+        let printOnPage = document.getElementById('print');
+
+        function searchWord() {
+            const wordToSearch = searchInput.value.toLowerCase();
+            let foundWord = false;
+
+            for (const [word, definition] of Object.entries(englishDictionary)) {
+                if (word.startsWith(wordToSearch)) {
+                    printOnPage.innerHTML = `Your word means: ${definition}`;
+                    foundWord = true;
+                    break; 
+                }
+            }
+
+          
+        }
+        setInterval(searchWord, 1000);
+
+       
+
+
+    </script>
+
+</body>
+
+</html>
